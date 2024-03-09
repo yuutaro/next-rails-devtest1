@@ -1,3 +1,5 @@
+# [Rails×Next.js×AWSハンズオン解説](https://zenn.dev/ddpmntcpbr/books/rna-hands-on)学習中のリポジトリ
+
 ## コマンド一覧
 - composeで定義されたネットワークとその中にあるコンテナ（サービスの起動）  
 
