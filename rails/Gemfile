@@ -26,4 +26,9 @@ group :development, :test do
 
   # テストフレームワーク rspec を導入する
   gem "rspec-rails"
+
+  # rubocopを使えるようにする
+  gem "rubocop-faker"
+  gem "rubocop-rails"
+  gem "rubocop-rspec"
 end
