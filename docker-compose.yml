@@ -23,5 +23,8 @@ services:
       - db
     tty: true
     stdin_open: true
+    environment:
+      - LOCAL_USER_ID=1000
+      - LOCAL_GROUP_ID=1000
 volumes:
   mysql_data:

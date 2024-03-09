@@ -1,5 +1,5 @@
 FROM ruby:3.1.4
-RUN apt-get update -qq && apt-get install -y vim
+RUN apt-get update -qq && apt-get install -y vim gosu
 
 RUN mkdir /myapp
 WORKDIR /myapp
