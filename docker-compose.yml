@@ -26,5 +26,17 @@ services:
     environment:
       - LOCAL_USER_ID=1000
       - LOCAL_GROUP_ID=1000
+  next:
+    build:
+      context: ./next
+    volumes:
+      - ./next:/app
+    ports:
+      - "3000:3000"
+    tty: true
+    stdin_open: true
+    environment:
+      - LOCAL_USER_ID=1000
+      - LOCAL_GROUP_ID=1000
 volumes:
   mysql_data:
