@@ -3,8 +3,8 @@ set -e
 
 rm -f /myapp/tmp/pids/server.pid
 
-USERID=${LOCAL_USER_ID}
-GROUPID=${LOCAL_GROUP_ID}
+USERID=${LOCAL_USER_ID :- 1000}
+GROUPID=${LOCAL_GROUP_ID :- 1000}
 
 echo "UserName: dockeruser, UserID: $USERID, GroupID: $GROUPID"
 groupadd -g $GROUPID dockeruser
