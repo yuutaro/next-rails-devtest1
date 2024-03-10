@@ -17,9 +17,14 @@
   docker compose exec -u <user> <service> <command>
   docker compose exec -u dockeruser rails /bin/bash
   ```
-- コンテナ内でのRailsサーバー起動法
+- コンテナ内でのRailsサーバー起動法  
   ```
   rails s -b '0.0.0.0'
+  ```
+
+- dockerfileをdocker-composeでビルドする方法  
+  ```
+  docker compose build --no-cache
   ```
 
 ## dockerコンテナ内でのユーザー作成
