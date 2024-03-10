@@ -29,6 +29,7 @@ services:
   next:
     build:
       context: ./next
+    command: bash -c "npm run dev"
     volumes:
       - ./next:/app
     ports:

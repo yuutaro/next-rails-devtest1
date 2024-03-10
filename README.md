@@ -11,11 +11,13 @@
   ```
   docker compose exec <service> <command>
   docker compose exec rails /bin/bash
+  docker compose exec next /bin/bash
   ```
 - ネットワーク内のコンテナ内に特定のユーザーで入る方法（推奨）  
   ```
   docker compose exec -u <user> <service> <command>
   docker compose exec -u dockeruser rails /bin/bash
+  docker compose exec -u node next /bin/bash
   ```
 - コンテナ内でのRailsサーバー起動法  
   ```
