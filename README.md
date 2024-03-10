@@ -6,14 +6,14 @@
   ```
   docker compose up
   ```
-- ネットワーク内のコンテナ内にルートユーザーで入る方法（非推奨）  
+- ネットワーク内のコンテナ内にルートユーザーで入る方法（ルートユーザー）  
 
   ```
   docker compose exec <service> <command>
   docker compose exec rails /bin/bash
   docker compose exec next /bin/bash
   ```
-- ネットワーク内のコンテナ内に特定のユーザーで入る方法（推奨）  
+- ネットワーク内のコンテナ内に特定のユーザーで入る方法（ユーザー）  
   ```
   docker compose exec -u <user> <service> <command>
   docker compose exec -u dockeruser rails /bin/bash
