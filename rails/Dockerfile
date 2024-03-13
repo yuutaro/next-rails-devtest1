@@ -12,8 +12,6 @@ RUN bundle update --bundler
 RUN bundle install
 COPY . /myapp
 
-RUN chmod -R 777 /myapp/
-
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
