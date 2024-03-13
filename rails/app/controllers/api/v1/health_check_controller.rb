@@ -5,8 +5,7 @@ module Api
     # Health Check Controller
     class HealthCheckController < ApplicationController
       def index
-        current_time = Time.zone.now
-        render json: { message: "fetch at #{current_time}" }, status: :ok
+        render json: { message: "Success Health Check!" }, status: :ok
       end
     end
   end
