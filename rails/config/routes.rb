@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
       namespace :current do
         resource :user, only: %i[show]
+        resources :articles, only: %i[create]
       end
 
       resources :articles, only: [:index, :show]
