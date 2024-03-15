@@ -17,7 +17,7 @@ Rails.application.routes.draw do
         resource :user, only: %i[show]
       end
 
-      resources :articles, only: %i[show]
+      resources :articles, only: [:index, :show]
     end
   end
 end
