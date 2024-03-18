@@ -20,4 +20,4 @@ chown -R dockeruser:dockeruser /myapp
 # echo "dockeruser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # コマンドを dockeruser で実行
-exec /usr/sbin/gosu dockeruser "$@"
+exec "$@"

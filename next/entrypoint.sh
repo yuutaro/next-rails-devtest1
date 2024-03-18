@@ -29,4 +29,4 @@ groupdel tempgroup
 
 chown -R node:node /app
 
-exec /usr/sbin/gosu node "$@"
+exec "$@"
