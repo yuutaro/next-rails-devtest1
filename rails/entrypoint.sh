@@ -12,4 +12,4 @@ useradd -m -s /bin/bash -u $USERID -g $GROUPID dockeruser
 
 chown -R dockeruser:dockeruser /myapp
 
-exec /usr/sbin/gosu dockeruser "$@"
+exec "$@"
