@@ -119,7 +119,7 @@ const CurrentArticles: NextPage = () => {
                     </Box>
                   )}
                 </>
-                <Box>
+                <Link href={'/current/articles/edit/' + article.id}>
                   <Avatar>
                     <Tooltip title="編集する">
                       <IconButton sx={{ backgroundColor: '#F1F5FA' }}>
@@ -127,7 +127,7 @@ const CurrentArticles: NextPage = () => {
                       </IconButton>
                     </Tooltip>
                   </Avatar>
-                </Box>
+                </Link>
                 <Box>
                   <Link href={'/current/articles/' + article.id}>
                     <Avatar>
