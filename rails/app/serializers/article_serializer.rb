@@ -1,9 +1,15 @@
 class ArticleSerializer < ActiveModel::Serializer
-  attributes :id, :title, :content, :created_at, :from_today
+  
+  attributes :id, :title, :content, :status, :created_at, :from_today
 
   #UserSerializerをArticleSerializerの方で呼び出す
   belongs_to :user, serializer: UserSerializer
-  
+
+  #日本語翻訳を返す
+  def status
+    object.status_i18n
+  end
+
   def created_at
     object.created_at.strftime("%Y/%m/%d")
   end
