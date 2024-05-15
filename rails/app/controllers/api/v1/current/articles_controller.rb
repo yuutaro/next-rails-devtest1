@@ -7,6 +7,12 @@ class Api::V1::Current::ArticlesController < Api::V1::BaseController
       render json: articles
   end
 
+  def show
+    #マイ記事全てを取得
+    article = current_user.articles.find(params[:id])
+    render json: article
+  end
+
   def create
     # .firstで現在のユーザーが保有している未保存記事を取得。nilでない場合、unsaved_articleに代入
     unsaved_article = current_user.articles.unsaved.first || current_user.articles.create!(status: :unsaved)
