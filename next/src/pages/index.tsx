@@ -1,7 +1,8 @@
-import { Box, Grid, Container } from '@mui/material'
+import { Box, Grid, Container, Pagination } from '@mui/material'
 import camelcaseKeys from 'camelcase-keys'
 import type { NextPage } from 'next'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import ArticleCard from '@/components/ArticleCard'
 import Error from '@/components/Error'
@@ -20,16 +21,26 @@ type ArticleProps = {
 }
 
 const Index: NextPage = () => {
+  //ページ遷移を設定したり、パスからidなどを取得できる
+  const router = useRouter()
+  const page = 'page' in router.query ? Number(router.query.page) : 1
   // RailsAPIからarticlesレコードの取得
-  const url = 'http://localhost:3000/api/v1/articles'
+  const url = process.env.NEXT_PUBLIC_API_BASE_URL + '/articles/?page=' + page
   //レコード取得にuseSWRとfetcherを使用。返ってきたbodyをdataに格納
   const { data, error } = useSWR(url, fetcher)
+  //エラーの場合
   if (error) return <Error />
+  //dataの値を取得するまでLoading
   if (!data) return <Loading />
 
   console.log(data)
   const articles = camelcaseKeys(data.articles)
-  //-------------------------//
+  const meta = camelcaseKeys(data.meta)
+
+  //クリックされたページ番号をpathに入れる
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    router.push('/?page=' + value)
+  }
 
   return (
     <Box css={styles.pageMinHeight} sx={{ backgroundColor: '#e6f2ff' }}>
@@ -47,6 +58,13 @@ const Index: NextPage = () => {
             </Grid>
           ))}
         </Grid>
+        <Box sx={{ display: 'flex', justifyContent: 'center', py: 6 }}>
+          <Pagination
+            count={meta.totalPages}
+            page={meta.currentPage}
+            onChange={handleChange}
+          />
+        </Box>
       </Container>
     </Box>
   )
