@@ -10,6 +10,7 @@ class ApplicationController < ActionController::API
 
   #新規アカウント登録時にnameを保存
   def configure_permitted_parameters
-    devise_parameter_santizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+
 end
